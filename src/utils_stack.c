@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yakary <yakary@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:09:17 by yakary            #+#    #+#             */
-/*   Updated: 2023/09/14 14:53:32 by yakary           ###   ########.fr       */
+/*   Updated: 2023/09/18 21:04:32 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,32 +27,31 @@ void	stack_read(t_value *first)
 
 void	stack_print(t_data *data)
 {
-	t_value *tmp1;
-	t_value *tmp2;
-	
+	t_value	*tmp1;
+	t_value	*tmp2;
+
 	tmp1 = data->stack_a;
 	tmp2 = data->stack_b;
-		printf("-----Printing stacks-----\n");
+	printf("-----Printing stacks-----\n");
 	while (tmp1 || tmp2)
 	{
-		if (tmp1->nb)
+		if (tmp1)
 		{
 			printf("%7d", tmp1->nb);
 			tmp1 = tmp1->next;
 		}
+		else
+			printf("       ");
 		printf(" | ");
-		if (tmp2->nb)
+		if (tmp2)
 		{
-			printf("%-7d", tmp2->nb);
+			printf("%-7d\n", tmp2->nb);
 			tmp2 = tmp2->next;
 		}
-		printf("\n");
-		if (!tmp1 || !tmp2)
-			break;
-	// 	printf("-----\n");
-	// 	printf("tmp1 = %d\n", tmp1->nb);
-	// 	printf("tmp2 = %d\n", tmp2->nb);
-	// 	printf("-----\n");
+		else
+			printf("       \n");
+		if (!tmp1 && !tmp2)
+			break ;
 	}
 }
 

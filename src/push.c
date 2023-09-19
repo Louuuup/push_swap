@@ -3,37 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yakary <yakary@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:50:19 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/09/15 17:28:06 by yakary           ###   ########.fr       */
+/*   Updated: 2023/09/18 22:19:25 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    pa(void)
+void	pa(void)
 {
-	t_data *data;
+	t_data	*data;
+	t_value	*tmp;
 
 	data = get_data();
-	if (data->stack_b->nb)
+	tmp = data->stack_b;
+	if (data->stack_b)
 	{
-		if (data->stack_a->nb)
+		if (data->stack_a)
 		{
-			printf("data->stack_a->nb = %d\n", data->stack_a->nb);
-			printf("data->stack_b->nb = %d\n", data->stack_b->nb);
-			data->stack_a->pre = data->stack_b;
 			data->stack_b = data->stack_b->next;
-			data->stack_a->next = data->stack_a;
-			data->stack_a = data->stack_a->pre;
-			data->stack_a->pre = NULL;
+			tmp->next = data->stack_a;
+			data->stack_a->pre = tmp;
+			data->stack_a = tmp;
 		}
 		else
 		{
 			data->stack_a = data->stack_b;
 			data->stack_b = data->stack_b->next;
-			data->stack_a->pre = NULL;
+			data->stack_b->pre = NULL;
+			data->stack_a->next = NULL;
 		}
 	}
 	else
@@ -41,26 +41,28 @@ void    pa(void)
 	printf("pa\n");
 }
 
-void    pb(void)
+void	pb(void)
 {
-	t_data *data;
-	int 	tmp;
-	
+	t_data	*data;
+	t_value	*tmp;
+
 	data = get_data();
-	if (data->stack_a->nb)
+	tmp = data->stack_a;
+	if (data->stack_a)
 	{
-		if (data->stack_b->nb)
+		if (data->stack_b)
 		{
-			printf("data->stack_a->nb = %d\n", data->stack_a->nb);
-			printf("data->stack_b->nb = %d\n", data->stack_b->nb);
-			tmp = data->stack_a->nb;
-			
+			data->stack_a = data->stack_a->next;
+			tmp->next = data->stack_b;
+			data->stack_b->pre = tmp;
+			data->stack_b = tmp;
 		}
 		else
 		{
 			data->stack_b = data->stack_a;
 			data->stack_a = data->stack_a->next;
-			data->stack_b->pre = NULL;
+			data->stack_a->pre = NULL;
+			data->stack_b->next = NULL;
 		}
 	}
 	else

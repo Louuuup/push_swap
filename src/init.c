@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yakary <yakary@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:06:52 by yakary            #+#    #+#             */
-/*   Updated: 2023/09/14 14:31:17 by yakary           ###   ########.fr       */
+/*   Updated: 2023/09/18 22:30:13 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	reader(t_data *data, char **entries)
 {
 	int i;
 	t_value *tmp;
-	
+
 	i = 0;
 	printf("reader\n");
 	tmp = data->stack_a;
@@ -43,6 +43,5 @@ t_data	*init(int count, t_data *data)
 	data = get_data();
 	data->value_count = count;
 	data->stack_a = ft_calloc(1, sizeof(t_value));
-	data->stack_b = ft_calloc(1, sizeof(t_value));
 	return (data);
 }
