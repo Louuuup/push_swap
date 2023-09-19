@@ -6,7 +6,7 @@
 /*   By: yakary <yakary@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:51:35 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/09/13 12:28:38 by yakary           ###   ########.fr       */
+/*   Updated: 2023/09/18 23:11:16 by yakary           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,10 @@ void    pa(void);
 // Pushes the first element of A on top of B. Does nothing if A is empty.
 void	pb(void);
 //==================[swap.c]===================//
+void	sa(void);
+void	sb(void);
+void	ss(void);
+//==================[rotate.c]===================//
+void	ra(void);
 
 #endif

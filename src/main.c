@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yakary <yakary@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:59:32 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/09/18 22:24:52 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/09/19 13:45:55 by yakary           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,8 @@ int	main(int argc, char **argv)
 		ft_error("Need at least 3 numbers to sort!");
 	data = init(argc - 1, data);
 	reader(data, argv);
-	pb();
-	stack_print(data);
-	pa();
-	stack_print(data);
-	pb();
-	stack_print(data);
-	pb();
+	ra();
 	stack_print(data);
 	return (NO_ERROR);
 }
+		tmp->next = NULL;
