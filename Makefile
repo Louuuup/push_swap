@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yakary <yakary@student.42.fr>              +#+  +:+       +#+         #
+#    By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/07 16:18:52 by ycyr-roy          #+#    #+#              #
-#    Updated: 2023/09/12 12:14:35 by yakary           ###   ########.fr        #
+#    Updated: 2023/09/20 14:53:19 by ycyr-roy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ CC = gcc
 # CFLAGS = -Wall -Werror -Wextra -Wun reachable-code -Ofast
 CFLAGS =  -Wunreachable-code -Ofast -g
 SRC = \
-    main.c	init.c 	utils.c		rotate.c  r_rotate.c  swap.c  push.c  \
-	utils_stack.c
-# sort.c  sort_utils.c  sort_utils2.c  sort_utils3.c  sort_utils4.c  \	
+    main.c	init.c 	utils.c	rotate.c  r_rotate.c  swap.c  push.c  \
+	utils_stack.c	sorting_main.c	sorting_utils.c
+# sort.c  sort_utils.c  sort_utils2.c  sort_utils3.c  sort_utils4.c  \
 #==============================================================================#
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC))
 OBJS = $(addprefix $(BIN_DIR)/, $(SRC:.c=.o))

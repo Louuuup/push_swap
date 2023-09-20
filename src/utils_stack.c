@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:09:17 by yakary            #+#    #+#             */
-/*   Updated: 2023/09/18 21:04:32 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/09/20 18:31:11 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void	stack_print(t_data *data)
 		if (tmp2)
 		{
 			printf("%-7d\n", tmp2->nb);
-			tmp2 = tmp2->next;
+			if (tmp2->next)
+				tmp2 = tmp2->next;
 		}
 		else
 			printf("       \n");

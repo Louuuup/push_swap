@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yakary <yakary@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:51:35 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/09/18 23:11:16 by yakary           ###   ########.fr       */
+/*   Updated: 2023/09/20 17:41:12 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,18 @@ typedef struct value
 {
 	int		nb;
 	void	*next;
-	void 	*pre;
 }			t_value;
 
 typedef struct data
 {
-	int		value_count;
+	int		dsplit;
+	int		v_max;
+	int		v_min;
+	int		avg;
+	int		count;
 	t_value *stack_a;
 	t_value *stack_b;
-	
+
 }			t_data;
 //==================[utils.c]===================//
 /**
@@ -46,7 +49,7 @@ void	*lst_free(t_value *value);
 void 	ft_swap(void *src, void *dst);
 //==================[main.c]===================//
 t_data	*get_data(void);
-void	ft_error(char *str);
+void	ft_error(void);
 //==================[init.c]===================//
 void	reader(t_data *data, char **entries);
 t_data	*init(int count, t_data *data);
@@ -55,15 +58,51 @@ void	stack_read(t_value *first);
 void	stack_print(t_data *data);
 int		find_in_stack(t_value *stack, int obj);
 //==================[push.c]===================//
-// Pushes the first element of B on top of A. Does nothing if B is empty.
+// (push a): Take the first element at the top of b and put it at the top of a.
+// Do nothing if b is empty.
 void    pa(void);
-// Pushes the first element of A on top of B. Does nothing if A is empty.
+// (push b): Take the first element at the top of a and put it at the top of b.
+// Do nothing if a is empty.
 void	pb(void);
 //==================[swap.c]===================//
+// (swap a): Swap the first 2 elements at the top of stack a.
+// Do nothing if there is only one or no elements.
 void	sa(void);
+// (swap b): Swap the first 2 elements at the top of stack b.
+//	Do nothing if there is only one or no elements.
 void	sb(void);
+// sa and sb at the same time.
 void	ss(void);
 //==================[rotate.c]===================//
+// (rotate a): Shift up all elements of stack a by 1.
+// The first element becomes the last one.
 void	ra(void);
+// (rotate b): Shift up all elements of stack b by 1.
+// The first element becomes the last one.
+void	rb(void);
+// ra and rb at the same time.
+void	rr(void);
+//==================[r_rotate.c]===================//
+// (reverse rotate a): Shift down all elements of stack a by 1.
+// The last element becomes the first one.
+void	rra(void);
+// (reverse rotate b): Shift down all elements of stack b by 1.
+// The last element becomes the first one.
+void	rrb(void);
+// rra and rrb at the same time.
+void	rrr(void);
+//==================[sorting_main.c]===================//
+void	sort_main(t_data *data);
+//==================[sorting_utils.c]===================//
+int		avg_calc(t_value *stack);
+/**
+ * NOTE: Sends bigger than "split" on "dst"
+*@param[in] src		Stack_a
+*@param[in] dst		Stack_b
+*@param[in] split	avg of values.
+*/
+void	stack_split(t_value *src, t_value *dest, int splitter);
+void	peak_calc(t_value *stack, t_data *data);
+
 
 #endif

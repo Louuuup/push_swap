@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 17:00:40 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/09/18 20:56:05 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/09/19 14:13:31 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_value	*add_lst(t_value *value)
 	t_value	*new;
 
 	new = ft_calloc(1, sizeof(t_value));
-	new->pre = value;
+	// new->pre = value;
 	value->next = new;
 	return (new);
 }

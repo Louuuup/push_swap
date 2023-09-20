@@ -1,42 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sorting_main.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/07 15:59:32 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/09/20 18:32:42 by ycyr-roy         ###   ########.fr       */
+/*   Created: 2023/09/20 14:41:04 by ycyr-roy          #+#    #+#             */
+/*   Updated: 2023/09/20 18:28:18 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_data	*get_data(void)
+void	split_avg(t_value *src, t_data *dt)
 {
-	static t_data	*data;
-
-	if (!data)
-		data = ft_calloc(1, sizeof(t_data));
-	return (data);
+	while (src->next)
+	{
+		if (src->nb >= dt->avg - dt->dsplit && src->nb <= dt->avg + dt->dsplit)
+		{
+			if (src->nb >= dt->avg)
+				pb();
+			else
+			{
+				pb();
+				rrb();
+			}
+		}
+	}
 }
-
-void	ft_error(void)
+void	sort_main(t_data *data)
 {
-	fprintf(stderr, "Error\n");
-	exit (ERROR);
-}
-
-int	main(int argc, char **argv)
-{
-	t_data	*data;
-
-	data = NULL;
-	if (argc < 4)
-		ft_error();
-	data = init(argc - 1, data);
-	reader(data, argv);
-	sort_main(data);
-	stack_print(data);
-	return (NO_ERROR);
+	data->avg = avg_calc(data->stack_a);
+	printf("avg of values is %d\n", data->avg);
+	peak_calc(data->stack_a, data);
+	split_avg(data->stack_a, data);
 }
