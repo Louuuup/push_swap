@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 14:53:20 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/09/25 16:00:13 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/09/25 17:11:37 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	indexing(t_value *stack, t_data *data)
 
 	index = 1;
 	biggest_value = 0;
-	stack_print(data);
 	while (index <= data->count)
 	{
 		while (stack)
@@ -61,7 +60,7 @@ void	indexing(t_value *stack, t_data *data)
 			if (stack->nb == biggest_value)
 			{
 				stack->index = index;
-				printf("object with value %d has index of %d\n", stack->nb, index);
+				// printf("object with value %d has index of %d\n", stack->nb, index);
 				index++;
 			}
 			if (stack->next)
