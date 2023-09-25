@@ -6,24 +6,28 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:50:20 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/09/20 14:00:43 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/09/21 16:02:29 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	rotate(t_data *data, char stack)
+void	rotate(t_data *data, char stack)
 {
 	t_value	*index;
 	t_value	*tmp;
 
 	if (stack == 'a')
 	{
+		if (!(data->stack_a && data->stack_a->next))
+			return ;
 		index = data->stack_a;
 		data->stack_a = data->stack_a->next;
 	}
 	else
 	{
+		if (!(data->stack_b && data->stack_b->next))
+			return ;
 		index = data->stack_b;
 		data->stack_b = data->stack_b->next;
 	}
@@ -35,9 +39,6 @@ int	rotate(t_data *data, char stack)
 		index->next = tmp;
 		tmp->next = NULL;
 	}
-	else
-		return (ERROR);
-	return (NO_ERROR);
 }
 void	ra(void)
 {

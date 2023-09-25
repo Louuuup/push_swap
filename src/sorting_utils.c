@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 14:53:20 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/09/20 18:28:50 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/09/25 16:00:13 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,32 @@ void	peak_calc(t_value *stack, t_data *data)
 	}
 	data->v_max = max;
 	data->v_min = min;
+}
+
+void	indexing(t_value *stack, t_data *data)
+{
+	int biggest_value;
+	int index;
+
+	index = 1;
+	biggest_value = 0;
+	stack_print(data);
+	while (index <= data->count)
+	{
+		while (stack)
+		{
+			if (stack->nb == biggest_value)
+			{
+				stack->index = index;
+				printf("object with value %d has index of %d\n", stack->nb, index);
+				index++;
+			}
+			if (stack->next)
+				stack = stack->next;
+			else
+				break ;
+		}
+		biggest_value++;
+		stack = data->stack_a;
+	}
 }

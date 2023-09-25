@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:09:17 by yakary            #+#    #+#             */
-/*   Updated: 2023/09/20 18:31:11 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/09/25 14:56:19 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	stack_read(t_value *first)
 	t_value *tmp;
 
 	tmp = first;
-	printf("stack_read\n");
+	// printf("stack_read\n");
 	while (tmp)
 	{
-		printf("%d\n", tmp->nb);
+		// printf("%d\n", tmp->nb);
 		tmp = tmp->next;
 	}
 }
@@ -46,7 +46,6 @@ void	stack_print(t_data *data)
 		if (tmp2)
 		{
 			printf("%-7d\n", tmp2->nb);
-			if (tmp2->next)
 				tmp2 = tmp2->next;
 		}
 		else
@@ -63,12 +62,12 @@ int	find_in_stack(t_value *stack, int obj)
 	tmp = stack;
 	while (tmp)
 	{
-		printf("tmp = %d\n", tmp->nb);
-		printf("comparing (tmp)%d to (obj)%d\n", tmp->nb, obj);
+		// printf("tmp = %d\n", tmp->nb);
+		// printf("comparing (tmp)%d to (obj)%d\n", tmp->nb, obj);
 		if (tmp->nb == obj)
 			return (ERROR);
 		tmp = tmp->next;
 	}
-	printf("find_in_stack: no match found\n");
+	// printf("find_in_stack: no match found\n");
 	return (NO_ERROR);
 }

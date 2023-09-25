@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:06:52 by yakary            #+#    #+#             */
-/*   Updated: 2023/09/20 18:29:22 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/09/25 14:51:51 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	reader(t_data *data, char **entries)
 	t_value *tmp;
 
 	i = 0;
-	printf("reader\n");
+	// printf("reader\n");
 	tmp = data->stack_a;
-	printf("data->count = %d\n", data->count);
+	// printf("data->count = %d\n", data->count);
 	while (i < data->count)
 	{
 		if (find_in_stack(data->stack_a, ft_atoi(entries[i + 1])))
@@ -35,7 +35,7 @@ void	reader(t_data *data, char **entries)
 		i++;
 	}
 	stack_read(data->stack_a);
-	stack_print(data);
+	// stack_print(data);
 }
 
 t_data	*init(int count, t_data *data)

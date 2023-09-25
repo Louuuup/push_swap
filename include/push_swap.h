@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:51:35 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/09/20 17:41:12 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/09/25 15:54:59 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 typedef struct value
 {
 	int		nb;
+	int		index;
 	void	*next;
 }			t_value;
 
@@ -103,6 +104,6 @@ int		avg_calc(t_value *stack);
 */
 void	stack_split(t_value *src, t_value *dest, int splitter);
 void	peak_calc(t_value *stack, t_data *data);
-
+void	indexing(t_value *stack, t_data *data);
 
 #endif
