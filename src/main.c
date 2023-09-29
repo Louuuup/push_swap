@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:59:32 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/09/25 14:51:30 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:17:21 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ int	main(int argc, char **argv)
 	if (argc < 4)
 		ft_error();
 	data = init(argc - 1, data);
+
 	reader(data, argv);
+
 	sort_main(data);
 	// pb();
 	// stack_print(data);

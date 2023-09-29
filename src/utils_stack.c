@@ -6,11 +6,32 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:09:17 by yakary            #+#    #+#             */
-/*   Updated: 2023/09/25 14:56:19 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:35:15 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	stack_count(t_value *stash)
+{
+	int i;
+
+	if (stash)
+		i = 1;
+	else
+		return (0);
+	while (stash)
+	{
+		if (stash->next)
+		{
+			stash = stash->next;
+			i++;
+		}
+		else
+			break ;
+	}
+	return (i);
+}
 
 void	stack_read(t_value *first)
 {
@@ -64,7 +85,7 @@ int	find_in_stack(t_value *stack, int obj)
 	{
 		// printf("tmp = %d\n", tmp->nb);
 		// printf("comparing (tmp)%d to (obj)%d\n", tmp->nb, obj);
-		if (tmp->nb == obj)
+		if (tmp->index == obj)
 			return (ERROR);
 		tmp = tmp->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 17:00:40 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/09/19 14:13:31 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:16:11 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,21 @@ void	*lst_free(t_value *value)
 	return (NULL);
 }
 
-void	ft_swap(void *src, void *dst)
-{
-	void	*tmp;
+// void	ft_swap(void *src, void *dst)
+// {
+// 	void	*tmp;
 
-	tmp = src;
-	src = dst;
-	dst = tmp;
+// 	tmp = src;
+// 	src = dst;
+// 	dst = tmp;
+// }
+
+int square_root(int nb)
+{
+	int guess = nb / 2;
+
+	while (guess * guess != nb)
+		guess = (guess + nb / guess) / 2;
+	return (guess);
 }
+

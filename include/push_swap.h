@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:51:35 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/09/25 15:54:59 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:18:23 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdio.h>
 
 //================Base Values================//
+#define CHUNK_SIZE 12
 //==================Structs===================//
 typedef struct value
 {
@@ -33,6 +34,8 @@ typedef struct data
 	int		v_min;
 	int		avg;
 	int		count;
+	int		chunk_count;
+	int		chunk_size;
 	t_value *stack_a;
 	t_value *stack_b;
 
@@ -47,7 +50,7 @@ void	ft_free(void *ptr);
 void	free_all(t_data *data);
 t_value	*add_lst(t_value *value);
 void	*lst_free(t_value *value);
-void 	ft_swap(void *src, void *dst);
+int		square_root(int nb);
 //==================[main.c]===================//
 t_data	*get_data(void);
 void	ft_error(void);
@@ -58,6 +61,7 @@ t_data	*init(int count, t_data *data);
 void	stack_read(t_value *first);
 void	stack_print(t_data *data);
 int		find_in_stack(t_value *stack, int obj);
+int		stack_count(t_value *stash);
 //==================[push.c]===================//
 // (push a): Take the first element at the top of b and put it at the top of a.
 // Do nothing if b is empty.
@@ -104,6 +108,16 @@ int		avg_calc(t_value *stack);
 */
 void	stack_split(t_value *src, t_value *dest, int splitter);
 void	peak_calc(t_value *stack, t_data *data);
+/**
+ * NOTE: If obj with <index> is easier to access with rr, <1>
+*@param[in] stack   pointer to obj.
+*@param[in] index	index we are looking for.
+*@param[in] data	bin tsé.
+*/
 void	indexing(t_value *stack, t_data *data);
+int find_obj(t_value *stack, int index);
+int find_biggest(t_value *stack, int range);
+//Looks if there is an object with index between min and max in stack
+int		range_in_stack(t_value *stack, int min, int max);
 
 #endif

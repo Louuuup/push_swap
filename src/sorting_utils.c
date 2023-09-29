@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 14:53:20 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/09/25 17:11:37 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:15:39 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,20 @@ void	peak_calc(t_value *stack, t_data *data)
 	data->v_min = min;
 }
 
+int	range_in_stack(t_value *stack, int min, int max)
+{
+	while (stack)
+	{
+		if (stack->index < max && stack->index > min)
+			return (1);
+		else if (stack->next)
+			stack = stack->next;
+		else
+			break ;
+	}
+	return (0);
+}
+
 void	indexing(t_value *stack, t_data *data)
 {
 	int biggest_value;
@@ -72,3 +86,64 @@ void	indexing(t_value *stack, t_data *data)
 		stack = data->stack_a;
 	}
 }
+
+t_value *get_obj(t_value *stack, int slot)
+{
+	int i;
+
+	i = 0;
+	while (i < slot && stack)
+	{
+		if (stack->next)
+			stack = stack->next;
+		// else
+		// 	printf("Reached end of stack\n");
+		i++;
+	}
+	return (stack);
+}
+
+
+int find_biggest(t_value *stack, int range)
+{
+	int i;
+	int biggest;
+	int biggest_idx;
+	int tmp;
+
+	tmp = 0;
+	biggest = 0;
+	i = 0;
+	biggest_idx = 0;
+	while (i < range)
+	{
+		tmp = get_obj(stack, i)->index;
+		if (tmp > biggest)
+		{
+			biggest = tmp;
+			biggest_idx = i;
+		}
+		i++;
+	}
+	// printf("Biggest number is #%d ouf of %d numbers\n", biggest_idx + 1, range);
+	return (biggest_idx);
+}
+
+int find_obj(t_value *stack, int index)
+{
+	int i;
+
+	i = 0;
+	while (stack)
+	{
+		if (stack->index == index)
+			return (i);
+		i++;
+		if (stack->next)
+			stack = stack->next;
+		else
+			break ;
+	}
+	return (i);
+}
+
