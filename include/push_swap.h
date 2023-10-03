@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:51:35 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/09/29 17:18:23 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/02 20:07:33 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include <string.h>
 # include <stdio.h>
 
-//================Base Values================//
-#define CHUNK_SIZE 12
 //==================Structs===================//
 typedef struct value
 {
@@ -29,9 +27,6 @@ typedef struct value
 
 typedef struct data
 {
-	int		dsplit;
-	int		v_max;
-	int		v_min;
 	int		avg;
 	int		count;
 	int		chunk_count;
@@ -99,24 +94,9 @@ void	rrr(void);
 //==================[sorting_main.c]===================//
 void	sort_main(t_data *data);
 //==================[sorting_utils.c]===================//
-int		avg_calc(t_value *stack);
-/**
- * NOTE: Sends bigger than "split" on "dst"
-*@param[in] src		Stack_a
-*@param[in] dst		Stack_b
-*@param[in] split	avg of values.
-*/
-void	stack_split(t_value *src, t_value *dest, int splitter);
-void	peak_calc(t_value *stack, t_data *data);
-/**
- * NOTE: If obj with <index> is easier to access with rr, <1>
-*@param[in] stack   pointer to obj.
-*@param[in] index	index we are looking for.
-*@param[in] data	bin tsé.
-*/
 void	indexing(t_value *stack, t_data *data);
-int find_obj(t_value *stack, int index);
-int find_biggest(t_value *stack, int range);
+int		find_obj(t_value *stack, int index);
+int		find_biggest(t_value *stack, int range);
 //Looks if there is an object with index between min and max in stack
 int		range_in_stack(t_value *stack, int min, int max);
 

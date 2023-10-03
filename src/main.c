@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:59:32 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/09/29 17:17:21 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/02 19:55:39 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_data	*get_data(void)
 void	ft_error(void)
 {
 	fprintf(stderr, "Error\n");
+	free_all(get_data());
 	exit (ERROR);
 }
 
@@ -32,7 +33,7 @@ int	main(int argc, char **argv)
 	t_data	*data;
 
 	data = NULL;
-	if (argc < 4)
+	if (argc < 2)
 		ft_error();
 	data = init(argc - 1, data);
 

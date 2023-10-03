@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 17:00:40 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/09/29 17:16:11 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/02 12:23:31 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,18 @@ void	*lst_free(t_value *value)
 
 int square_root(int nb)
 {
-	int guess = nb / 2;
+	int guess;
+	int loop_check;
 
-	while (guess * guess != nb)
+	loop_check = 0;
+	guess = nb / 2;
+	while (guess * guess != nb && guess * guess + 1 != nb && guess * guess - 1 != nb)
+	{
 		guess = (guess + nb / guess) / 2;
+		if (loop_check == guess)
+			break ;
+		loop_check = guess;
+	}
 	return (guess);
 }
 

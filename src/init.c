@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:06:52 by yakary            #+#    #+#             */
-/*   Updated: 2023/09/25 14:51:51 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/02 19:37:59 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,5 @@ t_data	*init(int count, t_data *data)
 	data = get_data();
 	data->count = count;
 	data->stack_a = ft_calloc(1, sizeof(t_value));
-	if (count <= 20)
-		data->dsplit = 5;
 	return (data);
 }
