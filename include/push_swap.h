@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:51:35 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/10/02 20:07:33 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/05 16:07:18 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ typedef struct data
 	int		count;
 	int		chunk_count;
 	int		chunk_size;
-	t_value *stack_a;
-	t_value *stack_b;
+	t_value	*stack_a;
+	t_value	*stack_b;
 
 }			t_data;
 //==================[utils.c]===================//
@@ -60,7 +60,7 @@ int		stack_count(t_value *stash);
 //==================[push.c]===================//
 // (push a): Take the first element at the top of b and put it at the top of a.
 // Do nothing if b is empty.
-void    pa(void);
+void	pa(void);
 // (push b): Take the first element at the top of a and put it at the top of b.
 // Do nothing if a is empty.
 void	pb(void);
@@ -96,6 +96,7 @@ void	sort_main(t_data *data);
 //==================[sorting_utils.c]===================//
 void	indexing(t_value *stack, t_data *data);
 int		find_obj(t_value *stack, int index);
+t_value	*get_obj(t_value *stack, int slot);
 int		find_biggest(t_value *stack, int range);
 //Looks if there is an object with index between min and max in stack
 int		range_in_stack(t_value *stack, int min, int max);

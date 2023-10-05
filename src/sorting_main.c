@@ -6,42 +6,62 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 14:41:04 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/10/02 20:07:26 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/05 16:14:00 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	stack_ordered(t_value *stack)
+{
+	int	before;
+
+	before = 0;
+	while (stack)
+	{
+		if (stack->index < before)
+			return (0);
+		before = stack->index;
+		if (stack->next)
+			stack = stack->next;
+		else
+			return (1);
+	}
+	return (1);
+}
+
 void	easy_sort(t_data *dt, int count)
 {
-	t_value *tmp;
-	t_value *stack;
+	t_value	*tmp;
+	int		i;
 
-	stack = dt->stack_a;
-	tmp = stack->next;
-	if (count == 2 && stack->index > tmp->index)
+	i = 1;
+	tmp = dt->stack_a->next;
+	if (count == 2 && dt->stack_a->index > tmp->index)
 		ra();
-	else
+	while (stack_count(dt->stack_a) > 3)
 	{
-		while (count)
-		{
-			if (dt->stack_a->index == count)
-			{
-				pb();
-				count--;
-			}
-			else
-				ra();
-		}
+		if (dt->stack_a->index == count || dt->stack_a->index == 1)
+			pb();
+		else
+			ra();
+	}
+	while (stack_ordered(dt->stack_a) == 0 && i < 1000)
+	{
+		tmp = get_obj(dt->stack_a, 2);
+		if (tmp->index > get_obj(dt->stack_a, 1)->index && tmp->index \
+			> dt->stack_a->index)
+			sa();
+		else
+			ra();
+		i++;
 	}
 }
 
-void	polish(t_data *data)
+void	polish(t_data *data, int index_to_find)
 {
-	int index_to_find;
-	int slot_in_stack;
+	int	slot_in_stack;
 
-	index_to_find = data->count;
 	while (stack_count(data->stack_b))
 	{
 		slot_in_stack = find_obj(data->stack_b, index_to_find);
@@ -66,13 +86,10 @@ void	polish(t_data *data)
 	}
 }
 
-void	chunk_sort(t_data *data)
+void	chunk_sort(int median, int range, t_data *data)
 {
-	int tmp_index;
-	int median;
-	int range;
-	median = data->count / 2;
-	range = data->chunk_size;
+	int	tmp_index;
+
 	data->chunk_count = 2;
 	while (data->stack_a)
 	{
@@ -101,10 +118,21 @@ void	sort_main(t_data *data)
 	data->chunk_size = square_root(data->count);
 	if (data->count > 5)
 	{
-		chunk_sort(data);
-		polish(data);
+		chunk_sort((data->count / 2), data->chunk_size, data);
+		polish(data, data->count);
 	}
 	else
+	{
 		easy_sort(data, data->count);
-	free_all(data);
+		while (data->stack_b)
+		{
+			if (data->stack_b->index < data->stack_a->index)
+				pa();
+			else
+			{
+				pa();
+				ra();
+			}
+		}
+	}
 }

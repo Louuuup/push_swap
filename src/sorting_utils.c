@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 14:53:20 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/10/02 19:43:56 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/05 16:16:43 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	range_in_stack(t_value *stack, int min, int max)
 
 void	indexing(t_value *stack, t_data *data)
 {
-	int biggest_value;
-	int index;
+	int	biggest_value;
+	int	index;
 
 	index = 1;
 	biggest_value = 0;
@@ -40,7 +40,6 @@ void	indexing(t_value *stack, t_data *data)
 			if (stack->nb == biggest_value)
 			{
 				stack->index = index;
-				// printf("object with value %d has index of %d\n", stack->nb, index);
 				index++;
 			}
 			if (stack->next)
@@ -53,29 +52,26 @@ void	indexing(t_value *stack, t_data *data)
 	}
 }
 
-t_value *get_obj(t_value *stack, int slot)
+t_value	*get_obj(t_value *stack, int slot)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < slot && stack)
 	{
 		if (stack->next)
 			stack = stack->next;
-		// else
-		// 	printf("Reached end of stack\n");
 		i++;
 	}
 	return (stack);
 }
 
-
-int find_biggest(t_value *stack, int range)
+int	find_biggest(t_value *stack, int range)
 {
-	int i;
-	int biggest;
-	int biggest_idx;
-	int tmp;
+	int	i;
+	int	biggest;
+	int	biggest_idx;
+	int	tmp;
 
 	tmp = 0;
 	biggest = 0;
@@ -91,13 +87,12 @@ int find_biggest(t_value *stack, int range)
 		}
 		i++;
 	}
-	// printf("Biggest number is #%d ouf of %d numbers\n", biggest_idx + 1, range);
 	return (biggest_idx);
 }
 
-int find_obj(t_value *stack, int index)
+int	find_obj(t_value *stack, int index)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (stack)
@@ -112,4 +107,3 @@ int find_obj(t_value *stack, int index)
 	}
 	return (i);
 }
-

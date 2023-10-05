@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:50:20 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/09/21 16:02:29 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/05 16:08:25 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	rotate(t_data *data, char stack)
 		tmp->next = NULL;
 	}
 }
+
 void	ra(void)
 {
 	rotate(get_data(), 'a');
