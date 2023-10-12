@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:51:35 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/10/05 16:07:18 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:18:22 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 //==================Structs===================//
 typedef struct value
 {
-	int		nb;
-	int		index;
-	void	*next;
+	unsigned int	nb;
+	int				index;
+	void			*next;
 }			t_value;
 
 typedef struct data
@@ -31,6 +31,7 @@ typedef struct data
 	int		count;
 	int		chunk_count;
 	int		chunk_size;
+	int		is_split;
 	t_value	*stack_a;
 	t_value	*stack_b;
 
@@ -93,6 +94,7 @@ void	rrb(void);
 void	rrr(void);
 //==================[sorting_main.c]===================//
 void	sort_main(t_data *data);
+int		stack_ordered(t_value *stack);
 //==================[sorting_utils.c]===================//
 void	indexing(t_value *stack, t_data *data);
 int		find_obj(t_value *stack, int index);

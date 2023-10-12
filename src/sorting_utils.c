@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 14:53:20 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/10/05 16:16:43 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:19:39 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ void	indexing(t_value *stack, t_data *data)
 
 	index = 1;
 	biggest_value = 0;
-	while (index <= data->count)
+	while (index <= data->count && stack->next)
 	{
 		while (stack)
 		{
-			if (stack->nb == biggest_value)
+			if ((int)stack->nb == biggest_value)
 			{
 				stack->index = index;
 				index++;
@@ -92,16 +92,18 @@ int	find_biggest(t_value *stack, int range)
 
 int	find_obj(t_value *stack, int index)
 {
-	int	i;
+	int		i;
+	t_value	*tmp;
 
+	tmp = stack;
 	i = 0;
-	while (stack)
+	while (tmp)
 	{
-		if (stack->index == index)
+		if (tmp->index == index)
 			return (i);
 		i++;
-		if (stack->next)
-			stack = stack->next;
+		if (tmp->next)
+			tmp = tmp->next;
 		else
 			break ;
 	}

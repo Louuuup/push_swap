@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:09:17 by yakary            #+#    #+#             */
-/*   Updated: 2023/10/05 16:08:01 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:18:58 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	stack_read(t_value *first)
 // 	{
 // 		if (tmp1)
 // 		{
-// 			printf("%7d", tmp1->nb);
+// 			printf("%7ld", tmp1->nb);
 // 			tmp1 = tmp1->next;
 // 		}
 // 		else
@@ -64,7 +64,7 @@ void	stack_read(t_value *first)
 // 		printf(" | ");
 // 		if (tmp2)
 // 		{
-// 			printf("%-7d\n", tmp2->nb);
+// 			printf("%-7ld\n", tmp2->nb);
 // 			tmp2 = tmp2->next;
 // 		}
 // 		else
@@ -81,7 +81,7 @@ int	find_in_stack(t_value *stack, int obj)
 	tmp = stack;
 	while (tmp)
 	{
-		if (tmp->nb == obj)
+		if ((int)tmp->nb == obj)
 			return (ERROR);
 		tmp = tmp->next;
 	}

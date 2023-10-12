@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 14:41:04 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/10/05 16:14:00 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:11:54 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,6 @@ void	polish(t_data *data, int index_to_find)
 	while (stack_count(data->stack_b))
 	{
 		slot_in_stack = find_obj(data->stack_b, index_to_find);
-		if (!find_in_stack(data->stack_b, index_to_find))
-			return ;
 		if (slot_in_stack > (stack_count(data->stack_b)) / 2)
 		{
 			while (data->stack_b->index != index_to_find)
@@ -114,7 +112,6 @@ void	chunk_sort(int median, int range, t_data *data)
 
 void	sort_main(t_data *data)
 {
-	indexing(data->stack_a, data);
 	data->chunk_size = square_root(data->count);
 	if (data->count > 5)
 	{
