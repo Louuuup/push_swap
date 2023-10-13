@@ -6,7 +6,7 @@
 #    By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/07 16:18:52 by ycyr-roy          #+#    #+#              #
-#    Updated: 2023/09/20 14:53:19 by ycyr-roy         ###   ########.fr        #
+#    Updated: 2023/10/12 21:16:34 by ycyr-roy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,27 +38,12 @@ RM_DIR = rm -rf
 # headers to include
 INCLUDES = -I$(LIBFT_DIR) -I$(INC_DIR) -I$(MV_DIR)
 # things to link
-LFLAGS = -L$(GLFW_DIR) $(LIBFT)
-# more things to link (OS check)
-ifeq ($(shell uname),Linux)
-    LFLAGS +=
-else
-    CFLAGS += -Wall -Werror -Wextra
-endif
-# finding glfw (test commented shell command under this)
-ifeq ($(shell uname),Linux)
-    GLFW_DIR = /usr/lib
-else ifeq ($(shell uname),Darwin)
-    GLFW_DIR = /Users/$(USER)/.brew/lib
-else
-    $(error Unsupported operating system: $(shell uname))
-endif
-#   GLFW_DIR = $(shell brew --prefix glfw)/lib
-# (to try instead of GLFW_DIR = /Users/$(USER)/.brew/lib)
+LFLAGS =  $(LIBFT)
+
 #==============================================================================#
 all: libft $(NAME)
 $(BIN_DIR)/%.o: $(SRC_DIR)/%.c
-	@echo "$(BLUE)$(BOLD)✅Compiling $(YELLOW)PUSH_SWAP $(BLUE)→ $(RESET)$(CYAN)$(notdir $<)                    $(RESET)"
+	@echo "$(BLUE)$(BOLD)✅Compiling $(YELLOW)PUSH_SWAP $(BLUE)→ $(RESET)$(CYAN)$(notdir $<)        $(RESET)"
 	@$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
 	@printf	$(UP)$(CUT)
 $(NAME): $(BIN_DIR) $(OBJS)
@@ -80,6 +65,8 @@ fclean: clean
 	@$(MAKE) -C $(LIBFT_DIR) fclean
 	@echo "$(GREEN)$(BOLD)✅ Fully cleaned $(YELLOW)PUSH_SWAP$(RESET)"
 re: fclean all
+visu: all
+	../push_swap_visualizer/build/bin/visualizer
 .PHONY: all clean fclean re libft bonus
 #=====================================COLORS=====================================#
 # Colors

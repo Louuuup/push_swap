@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:50:19 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/09/25 14:53:35 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/12 21:12:01 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	pa(void)
 			data->stack_a->next = NULL;
 		}
 	}
-	printf("pa\n");
+	write(1, "pa\n", 3);
 }
 
 void	pb(void)
@@ -59,5 +59,5 @@ void	pb(void)
 			data->stack_b->next = NULL;
 		}
 	}
-	printf("pb\n");
+	write(1, "pb\n", 3);
 }

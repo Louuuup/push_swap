@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:50:20 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/10/05 16:08:25 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/12 21:09:17 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,18 @@ void	rotate(t_data *data, char stack)
 void	ra(void)
 {
 	rotate(get_data(), 'a');
-	printf("ra\n");
+	write(1, "ra\n", 3);
 }
 
 void	rb(void)
 {
 	rotate(get_data(), 'b');
-	printf("rb\n");
+	write(1, "rb\n", 3);
 }
 
 void	rr(void)
 {
 	rotate(get_data(), 'a');
 	rotate(get_data(), 'b');
-	printf("rr\n");
+	write(1, "rr\n", 3);
 }

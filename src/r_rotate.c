@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:50:16 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/09/29 14:57:56 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/12 21:11:03 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,18 @@ void	r_rotate_b(t_data *data)
 void	rra(void)
 {
 	r_rotate_a(get_data());
-	printf("rra\n");
+	write(1, "rra\n", 4);
 }
 
 void	rrb(void)
 {
 	r_rotate_b(get_data());
-	printf("rrb\n");
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(void)
 {
 	r_rotate_a(get_data());
 	r_rotate_b(get_data());
-	printf("rrr\n");
+	write(1, "rrr\n", 4);
 }
