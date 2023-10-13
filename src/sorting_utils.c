@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 14:53:20 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/10/11 16:19:39 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/12 23:44:08 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	indexing(t_value *stack, t_data *data)
 	{
 		while (stack)
 		{
-			if ((int)stack->nb == biggest_value)
+			if (stack->nb == biggest_value)
 			{
 				stack->index = index;
 				index++;
@@ -66,7 +66,7 @@ t_value	*get_obj(t_value *stack, int slot)
 	return (stack);
 }
 
-int	find_biggest(t_value *stack, int range)
+int	find_biggest_idx(t_value *stack, int range)
 {
 	int	i;
 	int	biggest;
@@ -90,22 +90,13 @@ int	find_biggest(t_value *stack, int range)
 	return (biggest_idx);
 }
 
-int	find_obj(t_value *stack, int index)
+int	find_biggest_nb(t_value *stack, int range, int skip)
 {
-	int		i;
-	t_value	*tmp;
+	// int		i;
+	// t_value	tmp;
 
-	tmp = stack;
-	i = 0;
-	while (tmp)
-	{
-		if (tmp->index == index)
-			return (i);
-		i++;
-		if (tmp->next)
-			tmp = tmp->next;
-		else
-			break ;
-	}
-	return (i);
+	// while (tmp)
+	// {
+
+	// }
 }

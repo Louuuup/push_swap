@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:09:17 by yakary            #+#    #+#             */
-/*   Updated: 2023/10/11 16:18:58 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/12 22:41:01 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,24 @@ int	find_in_stack(t_value *stack, int obj)
 		tmp = tmp->next;
 	}
 	return (NO_ERROR);
+}
+
+int	find_obj(t_value *stack, int index)
+{
+	int		i;
+	t_value	*tmp;
+
+	tmp = stack;
+	i = 0;
+	while (tmp)
+	{
+		if (tmp->index == index)
+			return (i);
+		i++;
+		if (tmp->next)
+			tmp = tmp->next;
+		else
+			break ;
+	}
+	return (i);
 }

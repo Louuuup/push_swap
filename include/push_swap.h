@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:51:35 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/10/11 16:18:22 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/12 22:46:22 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 //==================Structs===================//
 typedef struct value
 {
-	unsigned int	nb;
-	int				index;
-	void			*next;
+	int		nb;
+	int		index;
+	void	*next;
 }			t_value;
 
 typedef struct data
@@ -53,11 +53,13 @@ void	ft_error(void);
 //==================[init.c]===================//
 void	reader(t_data *data, char **entries);
 t_data	*init(int count, t_data *data);
+int		is_int(char *str);
 //==============[utils_stack.c]================//
 void	stack_read(t_value *first);
 void	stack_print(t_data *data);
 int		find_in_stack(t_value *stack, int obj);
 int		stack_count(t_value *stash);
+int		find_obj(t_value *stack, int index);
 //==================[push.c]===================//
 // (push a): Take the first element at the top of b and put it at the top of a.
 // Do nothing if b is empty.
@@ -97,9 +99,9 @@ void	sort_main(t_data *data);
 int		stack_ordered(t_value *stack);
 //==================[sorting_utils.c]===================//
 void	indexing(t_value *stack, t_data *data);
-int		find_obj(t_value *stack, int index);
 t_value	*get_obj(t_value *stack, int slot);
-int		find_biggest(t_value *stack, int range);
+int		find_biggest_idx(t_value *stack, int range);
+int		find_biggest_nb(t_value *stack, int range, int skip);
 //Looks if there is an object with index between min and max in stack
 int		range_in_stack(t_value *stack, int min, int max);
 

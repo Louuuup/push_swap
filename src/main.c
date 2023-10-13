@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:59:32 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/10/11 16:11:39 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/12 22:53:24 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ int	main(int argc, char **argv)
 
 	data = get_data();
 	data->is_split = 0;
-	if (argc == 1)
-		return (NO_ERROR);
+	if (argc == 2 && (!is_int(argv[1])))
+		ft_error();
 	else if (have_space(argv[1]))
 	{
 		argv = ft_split(argv[1], ' ');
@@ -73,12 +73,14 @@ int	main(int argc, char **argv)
 		data = init(argc - 1, data);
 		reader(data, argv);
 		indexing(data->stack_a, data);
+
+		printf("biggest nb is %d\n", find_biggest_nb(data->stack_a, data->count, 0));
 		if (!stack_ordered(data->stack_a))
 			sort_main(data);
 	}
-	if (data)
-		free_all(data);
 	if (data->is_split)
 		ft_free(argv);
+	if (data)
+		free_all(data);
 	return (NO_ERROR);
 }
