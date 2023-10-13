@@ -3,15 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yakary <yakary@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:06:52 by yakary            #+#    #+#             */
-/*   Updated: 2023/10/11 16:10:59 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/12 21:56:04 by yakary           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+int is_int(char *str)
+{
+	int i;
 
+	i = 0;
+	if (str[i] == '-')
+		i++;
+	while (str[i])
+	{
+		if (!(str[i] >= '0' && str[i] <= '9'))
+			return(0);
+		i++;
+	}
+	if (i > 10)
+		return(0);
+	else if (i == 10 && str[0] != '-')
+		return(0);
+	else if (i == 10 && str[0] == '-' && ft_strcmp(str, "-2147483648") > 0)
+		return(0);
+	return (1);
+}
 void	reader(t_data *data, char **entries)
 {
 	int		i;
