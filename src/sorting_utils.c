@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yakary <yakary@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 14:53:20 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/10/12 23:44:08 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/13 16:18:03 by yakary           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,13 +90,17 @@ int	find_biggest_idx(t_value *stack, int range)
 	return (biggest_idx);
 }
 
-int	find_biggest_nb(t_value *stack, int range, int skip)
+int	find_smallest_nb(t_value *stack, int range, int nb)
 {
-	// int		i;
-	// t_value	tmp;
-
-	// while (tmp)
-	// {
-
-	// }
+	int		 i;
+	t_value	*tmp;
+	int		smallest;
+	
+	i = 0;
+	smallest = 2147483647;
+	tmp = stack;
+	while (tmp)
+	{
+		if (smallest = -1);
+	}
 }
