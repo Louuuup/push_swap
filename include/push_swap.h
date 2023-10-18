@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:51:35 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/10/18 14:41:27 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/18 16:37:54 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int		stack_ordered(t_value *stack);
 void	indexing(t_value *stack, t_data *data);
 t_value	*get_obj(t_value *stack, int slot);
 int		find_biggest_idx(t_value *stack, int range);
-t_value	*find_smallest_nb(t_value *stack, int min);
+t_value	*find_smallest_nb(t_value *stack, long min);
 //Looks if there is an object with index _between min and max in stack
 int		range_in_stack(t_value *stack, int min, int max);
 

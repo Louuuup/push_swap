@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:06:52 by yakary            #+#    #+#             */
-/*   Updated: 2023/10/18 15:35:37 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/18 16:53:37 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,19 @@ int	is_int(char *str)
 	i = 0;
 	if (str[i] == '-')
 		i++;
+	if (!str[i])
+		return (0);
 	while (str[i])
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
 			return (0);
 		i++;
 	}
-	if (i > 10)
+	if (i > 11)
 		return (0);
 	else if (i == 10 && str[0] != '-' && ft_strncmp(str, "2147483647", 10) > 0)
 		return (0);
-	else if (i == 10 && str[0] == '-' && ft_strncmp(str, "-2147483648", 11) < 0)
+	else if (i == 11 && str[0] == '-' && ft_strncmp(str, "-2147483648", 11) > 0)
 		return (0);
 	return (1);
 }
@@ -49,7 +51,7 @@ void	reader(t_data *data, char **entries)
 			ft_error();
 		if (i > 0 + !data->is_split)
 			tmp = add_lst(tmp);
-		else if (is_int(entries[i]))
+		if (is_int(entries[i]))
 			tmp->nb = ft_atoi(entries[i]);
 		else
 			ft_error();

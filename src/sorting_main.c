@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 14:41:04 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/10/18 15:18:21 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/18 16:03:06 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ void	polish(t_data *data, int index_to_find)
 		{
 			while (data->stack_b->index != index_to_find)
 			{
-				// printf("stack_b.index: %d\nto find: %d\n", data->stack_b->index, index_to_find);
 				rrb();
 			}
 			pa();
