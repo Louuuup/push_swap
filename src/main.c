@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:59:32 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/10/12 22:53:24 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/18 15:41:21 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	have_space(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str && str[i])
 	{
 		if (str[i] == ' ')
 			return (1);
@@ -60,21 +60,19 @@ int	main(int argc, char **argv)
 
 	data = get_data();
 	data->is_split = 0;
-	if (argc == 2 && (!is_int(argv[1])))
+	if ((argc == 2 && (!is_int(argv[1])) || (argc > 2 && !is_int(argv[2]))))
 		ft_error();
-	else if (have_space(argv[1]))
+	else if (argc > 1 && have_space(argv[1]))
 	{
 		argv = ft_split(argv[1], ' ');
 		argc = array_count(argv);
 		data->is_split = 1;
 	}
-	if (argc > 2)
+	if (argc > 2 && is_int(argv[2]))
 	{
 		data = init(argc - 1, data);
 		reader(data, argv);
 		indexing(data->stack_a, data);
-
-		printf("biggest nb is %d\n", find_biggest_nb(data->stack_a, data->count, 0));
 		if (!stack_ordered(data->stack_a))
 			sort_main(data);
 	}

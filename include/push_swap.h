@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:51:35 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/10/12 22:46:22 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/18 14:41:27 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int		is_int(char *str);
 //==============[utils_stack.c]================//
 void	stack_read(t_value *first);
 void	stack_print(t_data *data);
+void	stack_print_idx(t_data *data);
 int		find_in_stack(t_value *stack, int obj);
 int		stack_count(t_value *stash);
 int		find_obj(t_value *stack, int index);
@@ -101,8 +102,8 @@ int		stack_ordered(t_value *stack);
 void	indexing(t_value *stack, t_data *data);
 t_value	*get_obj(t_value *stack, int slot);
 int		find_biggest_idx(t_value *stack, int range);
-int		find_biggest_nb(t_value *stack, int range, int skip);
-//Looks if there is an object with index between min and max in stack
+t_value	*find_smallest_nb(t_value *stack, int min);
+//Looks if there is an object with index _between min and max in stack
 int		range_in_stack(t_value *stack, int min, int max);
 
 #endif

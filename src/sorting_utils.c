@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yakary <yakary@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 14:53:20 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/10/13 16:18:03 by yakary           ###   ########.fr       */
+/*   Updated: 2023/10/18 15:18:36 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,28 +28,44 @@ int	range_in_stack(t_value *stack, int min, int max)
 
 void	indexing(t_value *stack, t_data *data)
 {
-	int	biggest_value;
-	int	index;
+	// int	biggest_value;
+	// int	index;
 
+	// index = 1;
+	// biggest_value = 0;
+	// while (index <= data->count && stack->next)
+	// {
+	// 	while (stack)
+	// 	{
+	// 		if (stack->nb == biggest_value)
+	// 		{
+	// 			stack->index = index;
+	// 			index++;
+	// 		}
+	// 		if (stack->next)
+	// 			stack = stack->next;
+	// 		else
+	// 			break ;
+	// 	}
+	// 	biggest_value++;
+	// 	stack = data->stack_a;
+	// }
+	t_value *tmp;
+	int smallest;
+	int index;
+
+	smallest = -2147483647;
 	index = 1;
-	biggest_value = 0;
-	while (index <= data->count && stack->next)
+	while (index <= data->count)
 	{
-		while (stack)
-		{
-			if (stack->nb == biggest_value)
-			{
-				stack->index = index;
-				index++;
-			}
-			if (stack->next)
-				stack = stack->next;
-			else
-				break ;
-		}
-		biggest_value++;
-		stack = data->stack_a;
+		tmp = find_smallest_nb(stack, smallest);
+		smallest = tmp->nb;
+		tmp->index = index;
+		// printf("smallest: %d\n index: %d\n\n", smallest, index);
+		index++;
 	}
+	// stack_print(data);
+	// stack_print_idx(data);
 }
 
 t_value	*get_obj(t_value *stack, int slot)
@@ -90,17 +106,22 @@ int	find_biggest_idx(t_value *stack, int range)
 	return (biggest_idx);
 }
 
-int	find_smallest_nb(t_value *stack, int range, int nb)
+t_value	*find_smallest_nb(t_value *stack, int min)
 {
-	int		 i;
+	int		i;
+	long	found;
 	t_value	*tmp;
-	int		smallest;
-	
-	i = 0;
-	smallest = 2147483647;
+
 	tmp = stack;
+	found = 2147483650;
 	while (tmp)
 	{
-		if (smallest = -1);
+		if (tmp->nb < found && tmp->nb > min)
+			found = tmp->nb;
+		tmp = tmp->next;
 	}
+	tmp = stack;
+	while (tmp->nb != found)
+		tmp = tmp->next;
+	return (tmp);
 }

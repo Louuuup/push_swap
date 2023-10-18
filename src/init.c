@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:06:52 by yakary            #+#    #+#             */
-/*   Updated: 2023/10/12 22:29:07 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/10/18 15:35:37 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int	is_int(char *str)
 	}
 	if (i > 10)
 		return (0);
-	else if (i == 10 && str[0] != '-' && ft_strncmp(str, "2147483647", 10) < 0)
+	else if (i == 10 && str[0] != '-' && ft_strncmp(str, "2147483647", 10) > 0)
 		return (0);
-	else if (i == 10 && str[0] == '-' && ft_strncmp(str, "-2147483648", 10) > 0)
+	else if (i == 10 && str[0] == '-' && ft_strncmp(str, "-2147483648", 11) < 0)
 		return (0);
 	return (1);
 }
